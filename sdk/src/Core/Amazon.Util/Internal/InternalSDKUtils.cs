@@ -223,7 +223,11 @@ namespace Amazon.Util.Internal
         internal static string EXECUTION_ENVIRONMENT_ENVVAR = "AWS_EXECUTION_ENV";
         internal static string GetExecutionEnvironment()
         {
+#if(SANDBOX)
+            return "";
+#endif
             return Environment.GetEnvironmentVariable(EXECUTION_ENVIRONMENT_ENVVAR);
+
         }
 
         private static string GetExecutionEnvironmentUserAgentString()
@@ -240,27 +244,27 @@ namespace Amazon.Util.Internal
         }
 #endif
 
-        #region IsSet methods
+            #region IsSet methods
 
-        /*
-            Set
-              Collection
-                True -> set to empty AlwaysSend*
-                False -> set to empty collection type
-              Value type
-                True -> set to default(T)
-                False -> set to null
+            /*
+                Set
+                  Collection
+                    True -> set to empty AlwaysSend*
+                    False -> set to empty collection type
+                  Value type
+                    True -> set to default(T)
+                    False -> set to null
 
-            Get
-              Collection
-                Field is AlwaysSend* OR has items -> True
-                Otherwise -> False
-              Value type
-                Field is any value -> True
-                Null -> False
-         */
+                Get
+                  Collection
+                    Field is AlwaysSend* OR has items -> True
+                    Otherwise -> False
+                  Value type
+                    Field is any value -> True
+                    Null -> False
+             */
 
-        public static void SetIsSet<T>(bool isSet, ref Nullable<T> field)
+            public static void SetIsSet<T>(bool isSet, ref Nullable<T> field)
             where T : struct
         {
             if (isSet)

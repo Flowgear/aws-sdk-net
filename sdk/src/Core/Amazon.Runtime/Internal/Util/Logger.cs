@@ -45,7 +45,7 @@ namespace Amazon.Runtime.Internal.Util
             InternalLog4netLogger log4netLogger = new InternalLog4netLogger(type);
             loggers.Add(log4netLogger);
             loggers.Add(new InternalConsoleLogger(type));
-#if BCL
+#if BCL && !SANDBOX
             InternalSystemDiagnosticsLogger sdLogger = new InternalSystemDiagnosticsLogger(type);
             loggers.Add(sdLogger);
 #endif

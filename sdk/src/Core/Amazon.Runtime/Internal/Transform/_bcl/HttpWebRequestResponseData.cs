@@ -116,6 +116,7 @@ namespace Amazon.Runtime.Internal.Transform
             }
         }
 
+#if (!SANDBOX)
         /// <summary>
         /// Sets the <see cref="T:System.Runtime.Serialization.SerializationInfo" /> with information about the exception.
         /// </summary>
@@ -136,6 +137,7 @@ namespace Amazon.Runtime.Internal.Transform
                 info.AddValue("ContentLength", this.ContentLength);
             }
         }
+#endif
 
     }
 
@@ -156,7 +158,7 @@ namespace Amazon.Runtime.Internal.Transform
             
             return _response.GetResponseStream();
         }
-#if AWS_ASYNC_API 
+#if AWS_ASYNC_API
         public System.Threading.Tasks.Task<Stream> OpenResponseAsync()
         {            
             throw new NotSupportedException();

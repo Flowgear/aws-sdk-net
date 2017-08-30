@@ -139,6 +139,7 @@ namespace Amazon.S3.Util
             }
         }
 
+#if (!SANDBOX)
         /// <summary>
         /// Sets the <see cref="T:System.Runtime.Serialization.SerializationInfo" /> with information about the exception.
         /// </summary>
@@ -167,6 +168,7 @@ namespace Amazon.S3.Util
                 info.AddValue("ExtraFields", this.ExtraFields);
             }
         }
+#endif
 #endif
     }
 

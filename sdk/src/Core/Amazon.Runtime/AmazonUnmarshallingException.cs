@@ -120,6 +120,7 @@ namespace Amazon.Runtime
             }
         }
 
+#if (!SANDBOX)
         /// <summary>
         /// Sets the <see cref="T:System.Runtime.Serialization.SerializationInfo" /> with information about the exception.
         /// </summary>
@@ -145,6 +146,7 @@ namespace Amazon.Runtime
                 info.AddValue("ResponseBody", this.ResponseBody);
             }
         }
+#endif
 #endif
     }
 }

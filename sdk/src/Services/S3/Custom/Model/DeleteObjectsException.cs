@@ -85,6 +85,7 @@ namespace Amazon.S3
             }
         }
 
+#if (!SANDBOX)
         /// <summary>
         /// Sets the <see cref="T:System.Runtime.Serialization.SerializationInfo" /> with information about the exception.
         /// </summary>
@@ -106,6 +107,7 @@ namespace Amazon.S3
                 info.AddValue("Response", Response);
             }
         }
+#endif
 #endif
     }
 }

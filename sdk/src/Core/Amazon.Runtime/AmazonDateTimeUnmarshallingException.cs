@@ -74,6 +74,7 @@ namespace Amazon.Runtime
             }
         }
 
+#if (!SANDBOX)
         /// <summary>
         /// Sets the <see cref="T:System.Runtime.Serialization.SerializationInfo" /> with information about the exception.
         /// </summary>
@@ -98,6 +99,7 @@ namespace Amazon.Runtime
                 info.AddValue("InvalidDateTimeToken", this.InvalidDateTimeToken);
             }
         }
+#endif
 #endif
     }
 }

@@ -40,6 +40,7 @@ namespace Amazon.Util.Internal
 #endif
         public static string DetermineFramework()
         {
+#if (!SANDBOX)
             try
             {
                 if (Environment.Version.Major >= 4 && Registry.LocalMachine.OpenSubKey("Software\\Microsoft\\Net Framework Setup\\NDP\\v4") != null)
@@ -54,7 +55,7 @@ namespace Amazon.Util.Internal
             catch
             {
             }
-
+#endif
             return "Unknown";
         }
 
